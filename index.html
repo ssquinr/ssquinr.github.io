@@ -12,13 +12,14 @@
 
     <form id="form">
       <input type="text" id="desc" placeholder="รายละเอียด..." required />
-      <input type="number" id="amount" placeholder="จำนวนเงิน (+/-)" required />
+      <input type="number" id="income" placeholder="จำนวนเงินเพิ่ม (รายรับ)" />
+      <input type="number" id="expense" placeholder="จำนวนเงินลด (รายจ่าย)" />
       <button type="submit">เพิ่มรายการ</button>
     </form>
 
     <div class="summary">
-      <p>รายรับ: <span id="income">0</span> บาท</p>
-      <p>รายจ่าย: <span id="expense">0</span> บาท</p>
+      <p>รายรับ: <span id="incomeTotal">0</span> บาท</p>
+      <p>รายจ่าย: <span id="expenseTotal">0</span> บาท</p>
       <p>คงเหลือ: <span id="balance">0</span> บาท</p>
     </div>
 
