@@ -2,28 +2,54 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>บันทึกรายรับ-รายจ่าย</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>จำนวนเงิน</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    form select#person {
+      width: 90%;
+      max-width: 350px;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      box-sizing: border-box;
+      display: block;
+      background: #fff;
+      appearance: none;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>บันทึกรายรับ-รายจ่าย</h1>
+    <h1>จำนวนเงิน</h1>
 
-    <form id="form">
-      <input type="text" id="desc" placeholder="รายละเอียด..." required />
-      <input type="number" id="income" placeholder="จำนวนเงินเพิ่ม (รายรับ)" />
-      <input type="number" id="expense" placeholder="จำนวนเงินลด (รายจ่าย)" />
-      <button type="submit">เพิ่มรายการ</button>
-    </form>
-
-    <div class="summary">
-      <p>รายรับ: <span id="incomeTotal">0</span> บาท</p>
-      <p>รายจ่าย: <span id="expenseTotal">0</span> บาท</p>
-      <p>คงเหลือ: <span id="balance">0</span> บาท</p>
+    <div class="display-balance">
+      ยอดคงเหลือ: <span id="balance">0</span> บาท
     </div>
 
-    <ul id="list" class="list"></ul>
+    <form id="form">
+      <select id="person" required>
+        <option value="None" selected>None</option>
+        <option value="ซัน">ซัน</option>
+        <option value="อาร์ม">อาร์ม</option>
+        <option value="เฟลอร์">เฟลอร์</option>
+        <option value="กาย">กาย</option>
+      </select>
+      <input type="text" id="name" placeholder="ชื่อประวัติ" required />
+      <input type="number" id="add" placeholder="ใส่เงินเพื่อเพิ่มเลข" />
+      <input type="number" id="subtract" placeholder="ใส่เงินเพื่อลดเลข" />
+      <div class="btn-row">
+        <button type="submit">ส่ง</button>
+        <button type="button" id="showHistory">ประวัติ</button>
+      </div>
+    </form>
+
+    <div id="historySection" class="hidden">
+      <input type="text" id="search" placeholder="ค้นหาชื่อ..." />
+      <ul id="historyList"></ul>
+    </div>
   </div>
 
   <script src="script.js"></script>
